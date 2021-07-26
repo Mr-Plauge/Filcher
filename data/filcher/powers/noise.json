@@ -1,0 +1,145 @@
+{
+  "type": "origins:multiple",
+  "hidden": true,
+  "hurt_death": {
+    "type": "origins:self_action_when_hit",
+    "entity_action": {
+      "type": "origins:if_else",
+      "condition": {
+        "type": "origins:health",
+        "comparison": ">",
+        "compare_to": 0
+      },
+      "if_action": {
+        "type": "origins:execute_command",
+        "command": "function filcher:filcher_hurt_noise",
+        "permission_level": 4
+      },
+      "else_action": {
+        "type": "origins:execute_command",
+        "command": "function filcher:filcher_death_noise",
+        "permission_level": 4
+      }
+    },
+    "cooldown": 1
+  },
+  "spawn": {
+    "type": "origins:action_on_callback",
+    "entity_action_added": {
+      "type": "origins:if_else",
+      "condition": {
+        "type": "origins:and",
+        "conditions": [
+          {
+            "type": "origins:sneaking",
+            "inverted": true
+          },
+          {
+            "type": "origins:gamemode",
+            "gamemode": "spectator",
+            "inverted": true
+          },
+          {
+            "type": "origins:status_effect",
+            "effect": "minecraft:invisibility",
+            "inverted": true
+          }
+        ]
+      },
+      "if_action": {
+        "type": "origins:delay",
+        "ticks": 5,
+        "action": {
+          "type": "origins:execute_command",
+          "command": "function filcher:filcher_ambient_noise",
+          "permission_level": 4
+        }
+      }
+    }
+  },
+  "ambient": {
+    "type": "origins:action_over_time",
+    "interval": 100,
+    "entity_action": {
+      "type": "origins:chance",
+      "action": {
+        "type": "origins:if_else_list",
+        "actions": [
+          {
+            "condition": {
+              "type": "origins:health",
+              "comparison": ">",
+              "compare_to": 4
+            },
+            "action": {
+              "type": "origins:choice",
+              "actions": [
+                {
+                  "element": {
+                    "type": "origins:execute_command",
+                    "command": "function filcher:filcher_ambient_noise",
+                    "permission_level": 4
+                  },
+                  "weight": 3
+                },
+                {
+                  "element": {
+                    "type": "origins:if_else",
+                    "condition": {
+                      "type": "origins:health",
+                      "comparison": ">=",
+                      "compare_to": 12
+                    },
+                    "if_action": {
+                      "type": "origins:execute_command",
+                      "command": "function filcher:filcher_happy_noise",
+                      "permission_level": 4
+                    },
+                    "else_action": {
+                      "type": "origins:execute_command",
+                      "command": "function filcher:filcher_ambient_noise",
+                      "permission_level": 4
+                    }
+                  },
+                  "weight": 1
+                }
+              ]
+            }
+          },
+          {
+            "condition": {
+              "type": "origins:health",
+              "comparison": "<=",
+              "compare_to": 4
+            },
+            "action": {
+              "type": "origins:execute_command",
+              "command": "function filcher:filcher_retreat_noise",
+              "permission_level": 4
+            }
+          }
+        ]
+      },
+      "chance": 0.05
+    },
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:sneaking",
+          "inverted": true
+        },
+        {
+          "type": "origins:gamemode",
+          "gamemode": "spectator",
+          "inverted": true
+        },
+        {
+          "type": "origins:status_effect",
+          "effect": "minecraft:invisibility",
+          "inverted": true
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "origins:action_over_time",
+  "entity_action": {
+    "type": "origins:if_else",
+    "condition": {
+      "type": "origins:command",
+      "command": "execute positioned ~-20 ~-20 ~-20 in filcher:filcher_pocket_dimension if entity @e[dx=40,dy=40,dz=40,type=!minecraft:player,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb]",
+      "comparison": ">",
+      "compare_to": 10
+    },
+    "if_action": {
+      "type": "origins:execute_command",
+      "command": "execute positioned ~-20 ~-20 ~-20 in filcher:filcher_pocket_dimension as @e[dx=40,dy=40,dz=40,limit=1,type=!minecraft:player,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] run kill @s",
+      "permission_level": 4
+    }
+  },
+  "condition": {
+    "type": "origins:dimension",
+    "dimension": "filcher:filcher_pocket_dimension"
+  },
+  "interval": 60,
+  "hidden": true
+}

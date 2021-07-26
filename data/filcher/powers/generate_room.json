@@ -1,0 +1,42 @@
+{
+  "type": "origins:action_over_time",
+  "entity_action": {
+    "type": "origins:execute_command",
+    "command": "function filcher:filcher_generate_room",
+    "permission_level": 4 
+  },
+  "interval": 20,
+  "condition": {
+    "type": "origins:and",
+    "conditions": [
+      {
+        "type": "origins:dimension",
+        "dimension": "filcher:filcher_pocket_dimension"
+	    },
+      {
+        "type": "origins:command",
+        "command": "execute if score @s filcher_x = @s filcher_home_x",
+        "comparison": "==",
+        "compare_to": 1
+	    },
+      {
+        "type": "origins:command",
+        "command": "execute if score @s filcher_y = @s filcher_home_y",
+        "comparison": "==",
+        "compare_to": 1
+	    },
+      {
+        "type": "origins:command",
+        "command": "execute if score @s filcher_z = @s filcher_home_z",
+        "comparison": "==",
+        "compare_to": 1
+	    },
+      {
+        "type": "origins:gamemode",
+        "gamemode": "spectator",
+        "inverted": true
+	    }
+    ]
+  },
+  "hidden": true
+}

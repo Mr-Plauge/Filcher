@@ -1,0 +1,100 @@
+{
+  "type": "origins:action_over_time",
+  "entity_action": {
+    "type": "origins:damage",
+    "amount": 15,
+    "source": {
+      "name": "outOfWorld",
+      "bypasses_armor": true,
+      "unblockable": true
+    }
+  },
+  "interval": 60,
+  "condition": {
+    "type": "origins:and",
+    "conditions": [
+      {
+        "type": "origins:or",
+        "conditions": [
+          {
+            "type": "origins:command",
+            "command": "data get entity @s Pos[1]",
+            "comparison": "<=",
+            "compare_to": 59
+          },
+          {
+            "type": "origins:command",
+            "command": "data get entity @s Pos[1]",
+            "comparison": ">=",
+            "compare_to": 69
+          },
+          {
+            "type": "origins:in_block",
+            "block_condition": {
+              "type": "origins:offset",
+              "x": 9,
+              "condition": {
+                "type": "origins:block",
+                "block": "minecraft:barrier",
+                "inverted": true
+              }
+            }
+          },
+          {
+            "type": "origins:in_block",
+            "block_condition": {
+              "type": "origins:offset",
+              "x": -9,
+              "condition": {
+                "type": "origins:block",
+                "block": "minecraft:barrier",
+                "inverted": true
+              }
+            }
+          },
+          {
+            "type": "origins:in_block",
+            "block_condition": {
+              "type": "origins:offset",
+              "z": 9,
+              "condition": {
+                "type": "origins:block",
+                "block": "minecraft:barrier",
+                "inverted": true
+              }
+            }
+          },
+          {
+            "type": "origins:in_block",
+            "block_condition": {
+              "type": "origins:offset",
+              "z": -9,
+              "condition": {
+                "type": "origins:block",
+                "block": "minecraft:barrier",
+                "inverted": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "origins:dimension",
+        "dimension": "filcher:filcher_pocket_dimension"
+      },
+      {
+        "type": "origins:gamemode",
+        "gamemode": "spectator",
+        "inverted": true
+      },
+      {
+        "type": "origins:status_effect",
+        "effect": "minecraft:blindness",
+        "min_amplifier": 53,
+        "max_amplifier": 53,
+        "inverted": true
+      }
+    ]
+  },
+  "hidden": true
+}

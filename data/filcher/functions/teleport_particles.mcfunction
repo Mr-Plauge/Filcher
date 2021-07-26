@@ -1,0 +1,1 @@
+execute as @s at @s run particle minecraft:reverse_portal ~ ~0.8 ~ 0 0 0 3 50

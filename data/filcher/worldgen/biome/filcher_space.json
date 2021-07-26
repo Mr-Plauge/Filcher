@@ -1,0 +1,22 @@
+{
+  "effects": {
+    "sky_color": 0,
+    "fog_color": 0,
+    "water_color": 4159204,
+    "water_fog_color": 0
+  },
+  "carvers": {},
+  "starts": [],
+  "features": [],
+  "spawners": {},
+  "category": "plains",
+  "precipitation": "none",
+  "surface_builder": "minecraft:grass",
+  "scale": 0,
+  "downfall": 0,
+  "depth": 0,
+  "temperature": 0.8,
+  "player_spawn_friendly": true,
+  "spawn_costs": {},
+  "creature_spawn_probability": 0
+}

@@ -1,0 +1,247 @@
+{
+  "type": "origins:target_action_on_hit",
+  "entity_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "origins:apply_effect",
+        "effects": [
+          {
+            "effect": "minecraft:blindness",
+            "amplifier": 53,
+            "duration": 60
+          },
+          {
+            "effect": "minecraft:slowness",
+            "amplifier": 3,
+            "duration": 60
+          }
+        ]
+      },
+      {
+        "type": "origins:if_else",
+        "condition": {
+          "type": "origins:dimension",
+          "dimension": "filcher:filcher_pocket_dimension",
+          "inverted": true
+        },
+        "if_action": {
+          "type": "origins:and",
+          "actions": [
+            {
+              "type": "origins:execute_command",
+              "command": "execute store result score @s filcher_out_x run data get entity @s Pos[0]",
+              "permission_level": 4
+            },
+            {
+              "type": "origins:execute_command",
+              "command": "execute store result score @s filcher_out_y run data get entity @s Pos[1]",
+              "permission_level": 4
+            },
+            {
+              "type": "origins:execute_command",
+              "command": "execute store result score @s filcher_out_z run data get entity @s Pos[2]",
+              "permission_level": 4
+            },
+            {
+              "type": "origins:if_else_list",
+              "actions": [
+                {
+                  "condition": {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:overworld"
+                  },
+                  "action": {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players set @s filcher_out_dim 0",
+                    "permission_level": 4
+                  }
+                },
+                {
+                  "condition": {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether"
+                  },
+                  "action": {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players set @s filcher_out_dim 1",
+                    "permission_level": 4
+                  }
+                },
+                {
+                  "condition": {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_end"
+                  },
+                  "action": {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard players set @s filcher_out_dim 2",
+                    "permission_level": 4
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "condition": {
+    "type": "origins:status_effect",
+    "effect": "minecraft:blindness",
+    "min_amplifier": 53,
+    "max_amplifier": 53
+  },
+  "target_condition": {
+    "type": "origins:and",
+    "conditions": [
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:end_crystal",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:shulker",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:wither",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:ender_dragon",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:armor_stand",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:item",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:item_frame",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:painting",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:egg",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:snowball",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:potion",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:arrow",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:spectral_arrow",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:boat",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:chest_minecart",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:furnace_minecart",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:hopper_minecart",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:tnt_minecart",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:tnt",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:falling_block",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:experience_bottle",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:fireball",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:small_fireball",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:dragon_fireball",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:firework_rocket",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:leash_knot",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:llama_spit",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:lightning_bolt",
+        "inverted": true
+      },
+      {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:trident",
+        "inverted": true
+      }
+    ]
+  },
+  "cooldown": 60,
+  "hidden": true
+}

@@ -1,0 +1,33 @@
+{
+	"icon": "minecraft:bedrock",
+	"order": 0,
+	"impact": 3,
+	"name": "Filcher",
+	"description": "Despite being capable of bending space with enough precision to form a personal pocket dimension, Filchers are quite timid.",
+	"powers": [
+	  "filcher:combat_changes",
+	  "filcher:description_pocket_dimension",
+	  "filcher:description_vacuum",
+	  "filcher:description_non_combative",
+	  "filcher:description_gremlin",
+	  "filcher:description_pocketspace_incompatibility",
+	  "filcher:description_wandering_soul",
+	  "filcher:exhaustion_decrease",
+	  "filcher:generate_room",
+	  "filcher:immobility",
+	  "filcher:no_enderchest_shulkerbox",
+	  "filcher:noise",
+	  "filcher:out_of_bounds_kill",
+	  "filcher:pocket_dimension_activation",
+	  "filcher:pocket_dimension_activation_cooldown_recharge",
+	  "filcher:pocket_dimension_activation_cooldown_resource",
+	  "filcher:pocket_dimension_entity_limit",
+	  "filcher:pocket_dimension_select_entity",
+	  "filcher:pocket_dimension_select_entity_noise",
+	  "filcher:respawn_randomize",
+	  "filcher:scale",
+	  "filcher:scoreboard_filcher_coordinates_update",
+	  "filcher:set_up_scoreboards",
+	  "filcher:vacuum_activation"
+	]
+}

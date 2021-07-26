@@ -1,0 +1,62 @@
+{
+  "type": "origins:multiple",
+  "immobility_jump": {
+    "type": "origins:modify_jump",
+    "modifier": {
+      "value": -1,
+      "operation": "multiply_total"
+    },
+    "condition": {
+      "type": "origins:status_effect",
+      "effect": "minecraft:blindness",
+      "min_amplifier": 53,
+      "max_amplifier": 53
+    },
+    "hidden": true
+  },
+  "immobility_swim": {
+    "type": "origins:modify_swim_speed",
+    "modifier": {
+      "value": -1,
+      "operation": "multiply_total"
+    },
+    "condition": {
+      "type": "origins:status_effect",
+      "effect": "minecraft:blindness",
+      "min_amplifier": 53,
+      "max_amplifier": 53
+    },
+    "hidden": true
+  },
+  "immobility_no_milk": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "item": "minecraft:milk_bucket"
+      }
+    },
+    "condition": {
+      "type": "origins:status_effect",
+      "effect": "minecraft:blindness",
+      "min_amplifier": 53,
+      "max_amplifier": 53
+    }
+  },
+  "immobility_no_orb": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "item": "origins:orb_of_origin"
+      }
+    },
+    "condition": {
+      "type": "origins:status_effect",
+      "effect": "minecraft:blindness",
+      "min_amplifier": 53,
+      "max_amplifier": 53
+    }
+  },
+  "hidden": true
+}

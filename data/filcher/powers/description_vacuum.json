@@ -1,0 +1,5 @@
+{
+  "name": "Vacuum",
+  "description": "You can vacuum all items in a 15 block radius into your inventory. 2.5 second charge-up time. Damage taken from enemies during charge-up is increased.",
+  "type": "origins:simple"
+}

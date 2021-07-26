@@ -1,0 +1,446 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "origins:apply_effect",
+        "effect": {
+          "effect": "minecraft:blindness",
+          "duration": 80,
+          "amplifier": 53,
+          "show_icon": false,
+          "show_particles": false
+        }
+      },
+      {
+        "type": "origins:apply_effect",
+        "effect": {
+          "effect": "minecraft:slowness",
+          "duration": 60,
+          "amplifier": 10,
+          "show_icon": false,
+          "show_particles": false
+        }
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "function filcher:charge_ability_noise",
+        "permission_level": 4
+      },
+      {
+        "type": "origins:delay",
+        "ticks": 10,
+        "action": {
+          "type": "origins:if_else",
+          "condition": {
+            "type": "origins:health",
+            "comparison": ">",
+            "compare_to": 0
+          },
+          "if_action": {
+            "type": "origins:execute_command",
+            "command": "function filcher:charge_particles",
+            "permission_level": 4
+          }
+        }
+      },
+      {
+        "type": "origins:delay",
+        "ticks": 52,
+        "action": {
+          "type": "origins:if_else",
+          "condition": {
+            "type": "origins:and",
+            "conditions": [
+              {
+                "type": "origins:health",
+                "comparison": ">",
+                "compare_to": 0
+              },
+              {
+                "type": "origins:status_effect",
+                "effect": "minecraft:slowness",
+                "min_amplifier": 53,
+                "max_amplifier": 53,
+                "inverted": true
+              }
+            ]
+          },
+          "if_action": {
+            "type": "origins:execute_command",
+            "command": "function filcher:charge_ability_vacuum_noise",
+            "permission_level": 4
+          }
+        }
+      },
+      {
+        "type": "origins:delay",
+        "ticks": 55,
+        "action": {
+          "type": "origins:if_else",
+          "condition": {
+            "type": "origins:and",
+            "conditions": [
+              {
+                "type": "origins:health",
+                "comparison": ">",
+                "compare_to": 0
+              },
+              {
+                "type": "origins:status_effect",
+                "effect": "minecraft:slowness",
+                "min_amplifier": 53,
+                "max_amplifier": 53,
+                "inverted": true
+              }
+            ]
+          },
+          "if_action": {
+            "type": "origins:execute_command",
+            "command": "execute positioned ~-31 ~-31 ~-31 as @e[nbt={ActiveEffects:[{Id:15b,Amplifier:53b}]},dx=61,dy=61,dz=61,type=!minecraft:end_crystal,type=!minecraft:shulker,type=!minecraft:wither,type=!minecraft:ender_dragon,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] unless data entity @s SleepingX run teleport @s ~31 ~31 ~31",
+            "permission_level": 4
+          }
+        }
+      },
+      {
+        "type": "origins:delay",
+        "ticks": 60,
+        "action": {
+          "type": "origins:if_else",
+          "condition": {
+            "type": "origins:dimension",
+            "dimension": "filcher:filcher_pocket_dimension",
+            "inverted": true
+          },
+          "if_action": {
+            "type": "origins:if_else",
+            "condition": {
+              "type": "origins:and",
+              "conditions": [
+                {
+                  "type": "origins:scoreboard",
+                  "objective": "filcher_home_x",
+                  "comparison": "==",
+                  "compare_to": 0
+                },
+                {
+                  "type": "origins:scoreboard",
+                  "objective": "filcher_home_y",
+                  "comparison": "==",
+                  "compare_to": 0
+                },
+                {
+                  "type": "origins:scoreboard",
+                  "objective": "filcher_home_z",
+                  "comparison": "==",
+                  "compare_to": 0
+                }
+              ]
+            },
+            "if_action": {
+              "type": "origins:if_else",
+              "condition": {
+                "type": "origins:and",
+                "conditions": [
+                  {
+                    "type": "origins:health",
+                    "comparison": ">",
+                    "compare_to": 0
+                  },
+                  {
+                    "type": "origins:status_effect",
+                    "effect": "minecraft:slowness",
+                    "min_amplifier": 53,
+                    "max_amplifier": 53,
+                    "inverted": true
+                  }
+                ]
+              },
+              "if_action": {
+                "type": "origins:and",
+                "actions": [
+                  {
+                    "type": "origins:execute_command",
+                    "command": "function filcher:filcher_set_pocket_dimension",
+                    "permission_level": 4
+                  },
+                  {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~-31 ~-31 ~-31 as @s run scoreboard players operation @e[nbt={ActiveEffects:[{Id:15b,Amplifier:53b}]},dx=61,dy=61,dz=61,type=!minecraft:end_crystal,type=!minecraft:shulker,type=!minecraft:wither,type=!minecraft:ender_dragon,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] destination_x = @s filcher_home_x",
+                    "permission_level": 4
+                  },
+                  {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~-31 ~-31 ~-31 as @s run scoreboard players operation @e[nbt={ActiveEffects:[{Id:15b,Amplifier:53b}]},dx=61,dy=61,dz=61,type=!minecraft:end_crystal,type=!minecraft:shulker,type=!minecraft:wither,type=!minecraft:ender_dragon,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] destination_y = @s filcher_home_y",
+                    "permission_level": 4
+                  },
+                  {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~-31 ~-31 ~-31 as @s run scoreboard players operation @e[nbt={ActiveEffects:[{Id:15b,Amplifier:53b}]},dx=61,dy=61,dz=61,type=!minecraft:end_crystal,type=!minecraft:shulker,type=!minecraft:wither,type=!minecraft:ender_dragon,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] destination_z = @s filcher_home_z",
+                    "permission_level": 4
+                  },
+                  {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~-31 ~-31 ~-31 as @s run scoreboard players set @e[nbt={ActiveEffects:[{Id:15b,Amplifier:53b}]},dx=61,dy=61,dz=61,type=!minecraft:end_crystal,type=!minecraft:shulker,type=!minecraft:wither,type=!minecraft:ender_dragon,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] destination_dim 3",
+                    "permission_level": 4
+                  },
+                  {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~-31 ~-31 ~-31 as @e[nbt={ActiveEffects:[{Id:15b,Amplifier:53b}]},dx=61,dy=61,dz=61,type=!minecraft:end_crystal,type=!minecraft:shulker,type=!minecraft:wither,type=!minecraft:ender_dragon,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] unless data entity @s SleepingX run function filcher:teleport_destination",
+                    "permission_level": 4
+                  }
+                ]
+              }
+            },
+            "else_action": {
+              "type": "origins:if_else",
+              "condition": {
+                "type": "origins:and",
+                "conditions": [
+                  {
+                    "type": "origins:health",
+                    "comparison": ">",
+                    "compare_to": 0
+                  },
+                  {
+                    "type": "origins:status_effect",
+                    "effect": "minecraft:slowness",
+                    "min_amplifier": 53,
+                    "max_amplifier": 53,
+                    "inverted": true
+                  }
+                ]
+              },
+              "if_action": {
+                "type": "origins:and",
+                "actions": [
+                  {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~-31 ~-31 ~-31 as @s run scoreboard players operation @e[nbt={ActiveEffects:[{Id:15b,Amplifier:53b}]},dx=61,dy=61,dz=61,type=!minecraft:end_crystal,type=!minecraft:shulker,type=!minecraft:wither,type=!minecraft:ender_dragon,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] destination_x = @s filcher_home_x",
+                    "permission_level": 4
+                  },
+                  {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~-31 ~-31 ~-31 as @s run scoreboard players operation @e[nbt={ActiveEffects:[{Id:15b,Amplifier:53b}]},dx=61,dy=61,dz=61,type=!minecraft:end_crystal,type=!minecraft:shulker,type=!minecraft:wither,type=!minecraft:ender_dragon,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] destination_y = @s filcher_home_y",
+                    "permission_level": 4
+                  },
+                  {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~-31 ~-31 ~-31 as @s run scoreboard players operation @e[nbt={ActiveEffects:[{Id:15b,Amplifier:53b}]},dx=61,dy=61,dz=61,type=!minecraft:end_crystal,type=!minecraft:shulker,type=!minecraft:wither,type=!minecraft:ender_dragon,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] destination_z = @s filcher_home_z",
+                    "permission_level": 4
+                  },
+                  {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~-31 ~-31 ~-31 as @s run scoreboard players set @e[nbt={ActiveEffects:[{Id:15b,Amplifier:53b}]},dx=61,dy=61,dz=61,type=!minecraft:end_crystal,type=!minecraft:shulker,type=!minecraft:wither,type=!minecraft:ender_dragon,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] destination_dim 3",
+                    "permission_level": 4
+                  },
+                  {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~-31 ~-31 ~-31 as @e[nbt={ActiveEffects:[{Id:15b,Amplifier:53b}]},dx=61,dy=61,dz=61,type=!minecraft:end_crystal,type=!minecraft:shulker,type=!minecraft:wither,type=!minecraft:ender_dragon,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] unless data entity @s SleepingX run function filcher:teleport_destination",
+                    "permission_level": 4
+                  }
+                ]
+              }
+            }
+          },
+          "else_action": {
+            "type": "origins:if_else",
+            "condition": {
+              "type": "origins:and",
+              "conditions": [
+                {
+                  "type": "origins:health",
+                  "comparison": ">",
+                  "compare_to": 0
+                },
+                {
+                  "type": "origins:status_effect",
+                  "effect": "minecraft:slowness",
+                  "min_amplifier": 53,
+                  "max_amplifier": 53,
+                  "inverted": true
+                }
+              ]
+            },
+            "if_action": {
+              "type": "origins:and",
+              "actions": [
+                {
+                  "type": "origins:execute_command",
+                  "command": "execute positioned ~-31 ~-31 ~-31 as @s run scoreboard players operation @e[nbt={ActiveEffects:[{Id:15b,Amplifier:53b}]},dx=61,dy=61,dz=61,type=!minecraft:end_crystal,type=!minecraft:shulker,type=!minecraft:wither,type=!minecraft:ender_dragon,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] destination_x = @s filcher_out_x",
+                  "permission_level": 4
+                },
+                {
+                  "type": "origins:execute_command",
+                  "command": "execute positioned ~-31 ~-31 ~-31 as @s run scoreboard players operation @e[nbt={ActiveEffects:[{Id:15b,Amplifier:53b}]},dx=61,dy=61,dz=61,type=!minecraft:end_crystal,type=!minecraft:shulker,type=!minecraft:wither,type=!minecraft:ender_dragon,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] destination_y = @s filcher_out_y",
+                  "permission_level": 4
+                },
+                {
+                  "type": "origins:execute_command",
+                  "command": "execute positioned ~-31 ~-31 ~-31 as @s run scoreboard players operation @e[nbt={ActiveEffects:[{Id:15b,Amplifier:53b}]},dx=61,dy=61,dz=61,type=!minecraft:end_crystal,type=!minecraft:shulker,type=!minecraft:wither,type=!minecraft:ender_dragon,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] destination_z = @s filcher_out_z",
+                  "permission_level": 4
+                },
+                {
+                  "type": "origins:execute_command",
+                  "command": "execute positioned ~-31 ~-31 ~-31 as @s run scoreboard players operation @e[nbt={ActiveEffects:[{Id:15b,Amplifier:53b}]},dx=61,dy=61,dz=61,type=!minecraft:end_crystal,type=!minecraft:shulker,type=!minecraft:wither,type=!minecraft:ender_dragon,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] destination_dim = @s filcher_out_dim",
+                  "permission_level": 4
+                },
+                {
+                  "type": "origins:execute_command",
+                  "command": "execute positioned ~-31 ~-31 ~-31 as @e[nbt={ActiveEffects:[{Id:15b,Amplifier:53b}]},dx=61,dy=61,dz=61,type=!minecraft:end_crystal,type=!minecraft:shulker,type=!minecraft:wither,type=!minecraft:ender_dragon,type=!minecraft:armor_stand,type=!minecraft:item,type=!minecraft:item_frame,type=!minecraft:painting,type=!minecraft:egg,type=!minecraft:snowball,type=!minecraft:potion,type=!minecraft:arrow,type=!minecraft:spectral_arrow,type=!minecraft:boat,type=!minecraft:chest_minecart,type=!minecraft:furnace_minecart,type=!minecraft:hopper_minecart,type=!minecraft:tnt_minecart,type=!minecraft:tnt,type=!minecraft:falling_block,type=!minecraft:experience_bottle,type=!minecraft:fireball,type=!minecraft:small_fireball,type=!minecraft:dragon_fireball,type=!minecraft:firework_rocket,type=!minecraft:leash_knot,type=!minecraft:llama_spit,type=!minecraft:lightning_bolt,type=!minecraft:trident,type=!minecraft:experience_orb] unless data entity @s SleepingX run function filcher:teleport_destination",
+                  "permission_level": 4
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "origins:delay",
+        "ticks": 60,
+        "action": {
+          "type": "origins:if_else",
+          "condition": {
+            "type": "origins:and",
+            "conditions": [
+              {
+                "type": "origins:health",
+                "comparison": ">",
+                "compare_to": 0
+              },
+              {
+                "type": "origins:status_effect",
+                "effect": "minecraft:slowness",
+                "min_amplifier": 53,
+                "max_amplifier": 53,
+                "inverted": true
+              }
+            ]
+          },
+          "if_action": {
+            "type": "origins:change_resource",
+            "resource": "filcher:pocket_dimension_activation_cooldown_resource",
+            "change": -600
+          }
+        }
+      },
+      {
+        "type": "origins:delay",
+        "ticks": 61,
+        "action": {
+          "type": "origins:if_else",
+          "condition": {
+            "type": "origins:and",
+            "conditions": [
+              {
+                "type": "origins:health",
+                "comparison": ">",
+                "compare_to": 0
+              },
+              {
+                "type": "origins:status_effect",
+                "effect": "minecraft:slowness",
+                "min_amplifier": 53,
+                "max_amplifier": 53,
+                "inverted": true
+              }
+            ]
+          },
+          "if_action": {
+            "type": "origins:and",
+            "actions": [
+              {
+                "type": "origins:if_else",
+                "condition": {
+                  "type": "origins:dimension",
+                  "dimension": "filcher:filcher_pocket_dimension"
+                },
+                "if_action": {
+                  "type": "origins:and",
+                  "actions": [
+                    {
+                      "type": "origins:play_sound",
+                      "sound": "minecraft:entity.guardian.death",
+                      "volume": 50,
+                      "pitch": 1.2
+                    },
+                    {
+                      "type": "origins:execute_command",
+                      "command": "function filcher:teleport_in_noise",
+                      "permission_level": 4
+                    }
+                  ]
+                },
+                "else_action": {
+                  "type": "origins:and",
+                  "actions": [
+                    {
+                      "type": "origins:play_sound",
+                      "sound": "minecraft:entity.guardian.death",
+                      "volume": 50,
+                      "pitch": 1.2
+                    },
+                    {
+                      "type": "origins:execute_command",
+                      "command": "function filcher:teleport_out_noise",
+                      "permission_level": 4
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "origins:execute_command",
+                "command": "function filcher:teleport_particles",
+                "permission_level": 4
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "cooldown": 60,
+  "hud_render": {
+    "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+    "bar_index": 9
+  },
+  "condition": {
+    "type": "origins:and",
+    "conditions": [
+      {
+        "type": "origins:status_effect",
+        "effect": "minecraft:blindness",
+        "min_amplifier": 53,
+        "max_amplifier": 53,
+        "inverted": true
+      },
+      {
+        "type": "origins:status_effect",
+        "effect": "minecraft:blindness",
+        "min_amplifier": 52,
+        "max_amplifier": 52,
+        "inverted": true
+      },
+      {
+        "type": "origins:status_effect",
+        "effect": "minecraft:slowness",
+        "min_amplifier": 53,
+        "max_amplifier": 53,
+        "inverted": true
+      },
+      {
+        "type": "origins:resource",
+        "resource": "filcher:pocket_dimension_activation_cooldown_resource",
+        "comparison": ">=",
+        "compare_to": 600
+      },
+      {
+        "type": "origins:gamemode",
+        "gamemode": "spectator",
+        "inverted": true
+      }
+    ]
+  },
+  "hidden": true
+}

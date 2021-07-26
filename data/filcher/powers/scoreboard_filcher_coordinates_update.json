@@ -1,0 +1,102 @@
+{
+  "type": "origins:action_over_time",
+  "entity_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "origins:execute_command",
+        "command": "execute store result score @s filcher_x run data get entity @s Pos[0]",
+        "permission_level": 4
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "execute store result score @s filcher_y run data get entity @s Pos[1]",
+        "permission_level": 4
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "execute store result score @s filcher_z run data get entity @s Pos[2]",
+        "permission_level": 4
+      },
+      {
+        "type": "origins:if_else",
+        "condition": {
+          "type": "origins:dimension",
+          "dimension": "filcher:filcher_pocket_dimension",
+          "inverted": true
+        },
+        "if_action": {
+          "type": "origins:execute_command",
+          "command": "execute store result score @s filcher_out_x run data get entity @s Pos[0]",
+          "permission_level": 4
+        }
+      },
+      {
+        "type": "origins:if_else",
+        "condition": {
+          "type": "origins:dimension",
+          "dimension": "filcher:filcher_pocket_dimension",
+          "inverted": true
+        },
+        "if_action": {
+          "type": "origins:execute_command",
+          "command": "execute store result score @s filcher_out_y run data get entity @s Pos[1]",
+          "permission_level": 4
+        }
+      },
+      {
+        "type": "origins:if_else",
+        "condition": {
+          "type": "origins:dimension",
+          "dimension": "filcher:filcher_pocket_dimension",
+          "inverted": true
+        },
+        "if_action": {
+          "type": "origins:execute_command",
+          "command": "execute store result score @s filcher_out_z run data get entity @s Pos[2]",
+          "permission_level": 4
+        }
+      },
+      {
+        "type": "origins:if_else_list",
+        "actions": [
+          {
+            "condition": {
+              "type": "origins:dimension",
+              "dimension": "minecraft:overworld"
+            },
+            "action": {
+              "type": "origins:execute_command",
+              "command": "scoreboard players set @s filcher_out_dim 0",
+              "permission_level": 4
+            }
+          },
+          {
+            "condition": {
+              "type": "origins:dimension",
+              "dimension": "minecraft:the_nether"
+            },
+            "action": {
+              "type": "origins:execute_command",
+              "command": "scoreboard players set @s filcher_out_dim 1",
+              "permission_level": 4
+            }
+          },
+          {
+            "condition": {
+              "type": "origins:dimension",
+              "dimension": "minecraft:the_end"
+            },
+            "action": {
+              "type": "origins:execute_command",
+              "command": "scoreboard players set @s filcher_out_dim 2",
+              "permission_level": 4
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "interval": 20,
+  "hidden": true
+}

@@ -1,0 +1,18 @@
+{
+  "type": "origins:multiple",
+  "no_enderchest": {
+    "type": "origins:prevent_block_use",
+    "block_condition": {
+      "type": "origins:block",
+      "block": "minecraft:ender_chest"
+    }
+  },
+  "no_shulker_boxes": {
+    "type": "origins:prevent_block_use",
+    "block_condition": {
+      "type": "origins:in_tag",
+      "tag": "minecraft:shulker_boxes"
+    }
+  },
+  "hidden": true
+}

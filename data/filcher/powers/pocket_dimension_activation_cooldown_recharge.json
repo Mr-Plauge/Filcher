@@ -1,0 +1,51 @@
+{
+  "type": "origins:action_over_time",
+  "entity_action": {
+    "type": "origins:if_else",
+    "condition": {
+      "type": "origins:or",
+      "conditions": [
+        {
+          "type": "origins:resource",
+          "resource": "filcher:pocket_dimension_activation_cooldown_resource",
+          "comparison": "==",
+          "compare_to": 580
+        },
+        {
+          "type": "origins:resource",
+          "resource": "filcher:pocket_dimension_activation_cooldown_resource",
+          "comparison": "==",
+          "compare_to": 1180
+        }
+      ]
+    },
+    "if_action": {
+      "type": "origins:and",
+      "actions": [
+        {
+          "type": "origins:change_resource",
+          "resource": "filcher:pocket_dimension_activation_cooldown_resource",
+          "change": 20
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "playsound block.end_portal_frame.fill player @s ~ ~ ~ 100 1",
+          "permission_level": 4  
+		}
+      ]
+    },
+    "else_action": {
+      "type": "origins:change_resource",
+      "resource": "filcher:pocket_dimension_activation_cooldown_resource",
+      "change": 20
+    }
+  },
+  "condition": {
+    "type": "origins:resource",
+    "resource": "filcher:pocket_dimension_activation_cooldown_resource",
+    "comparison": "<=",
+    "compare_to": 1200
+  },
+  "interval": 20,
+  "hidden": true
+}

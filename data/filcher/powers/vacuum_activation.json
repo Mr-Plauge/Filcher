@@ -1,0 +1,128 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "origins:and",
+    "actions": [
+      {
+        "type": "origins:apply_effect",
+        "effect": {
+          "effect": "minecraft:blindness",
+          "duration": 66,
+          "amplifier": 52,
+          "show_icon": false,
+          "show_particles": false
+        }
+      },
+      {
+        "type": "origins:apply_effect",
+        "effect": {
+          "effect": "minecraft:slowness",
+          "duration": 46,
+          "amplifier": 10,
+          "show_icon": false,
+          "show_particles": false
+        }
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "function filcher:charge_weak_ability_noise",
+        "permission_level": 4
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "function filcher:charge_particles",
+        "permission_level": 4
+      },
+      {
+        "type": "origins:delay",
+        "ticks": 46,
+        "action": {
+          "type": "origins:if_else",
+          "condition": {
+            "type": "origins:health",
+            "comparison": ">",
+            "compare_to": 0
+          },
+          "if_action": {
+            "type": "origins:execute_command",
+            "command": "function filcher:charge_ability_vacuum_noise",
+            "permission_level": 4
+          }
+        }
+      },
+      {
+        "type": "origins:delay",
+        "ticks": 46,
+        "action": {
+          "type": "origins:if_else",
+          "condition": {
+            "type": "origins:health",
+            "comparison": ">",
+            "compare_to": 0
+          },
+          "if_action": {
+            "type": "origins:execute_command",
+            "command": "execute positioned ~-16 ~-16 ~-16 as @e[dx=31,dy=31,dz=31,type=minecraft:item] run teleport @s ~16 ~16 ~16",
+            "permission_level": 4
+          }
+        }
+      },
+      {
+        "type": "origins:delay",
+        "ticks": 46,
+        "action": {
+          "type": "origins:if_else",
+          "condition": {
+            "type": "origins:health",
+            "comparison": ">",
+            "compare_to": 0
+          },
+          "if_action": {
+            "type": "origins:change_resource",
+            "resource": "filcher:pocket_dimension_activation_cooldown_resource",
+            "change": -300
+          }
+        }
+      }
+    ]
+  },
+  "cooldown": 46,
+  "hud_render": {
+    "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+    "bar_index": 9
+  },
+  "condition": {
+    "type": "origins:and",
+    "conditions": [
+      {
+        "type": "origins:status_effect",
+        "effect": "minecraft:blindness",
+        "min_amplifier": 53,
+        "max_amplifier": 53,
+        "inverted": true
+      },
+      {
+        "type": "origins:status_effect",
+        "effect": "minecraft:blindness",
+        "min_amplifier": 52,
+        "max_amplifier": 52,
+        "inverted": true
+      },
+      {
+        "type": "origins:resource",
+        "resource": "filcher:pocket_dimension_activation_cooldown_resource",
+        "comparison": ">=",
+        "compare_to": 300
+      },
+      {
+        "type": "origins:gamemode",
+        "gamemode": "spectator",
+        "inverted": true
+      }
+    ]
+  },
+  "key": {
+    "key": "key.origins.secondary_active"
+  },
+  "hidden": true
+}

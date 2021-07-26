@@ -1,0 +1,55 @@
+{
+  "type": "origins:multiple",
+  "slowness_when_attacked": {
+    "type": "origins:self_action_when_hit",
+    "entity_action": {
+      "type": "origins:apply_effect",
+      "effect": {
+        "effect": "minecraft:slowness",
+        "duration": 20,
+        "amplifier": 3,
+        "show_icon": false,
+        "show_particles": false    
+      }
+    },
+    "damage_condition": {
+      "type": "origins:attacker"
+    },
+    "cooldown": 20
+  },
+  "no_shield": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "tag": "origins:shields"
+      }
+    }
+  },
+  "attacker_damage_taken_increase": {
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+      "value": 0.5,
+      "operation": "multiply_total"
+    },
+    "damage_condition": {
+      "type": "origins:attacker"
+    }
+  },
+  "attribute_decreases": {
+    "type": "origins:attribute",
+    "modifiers": [
+      {
+        "attribute": "reach-entity-attributes:attack_range",
+        "value": -0.25,
+        "operation": "multiply_total"
+      },
+      {
+        "attribute": "minecraft:generic.max_health",
+        "value": -6,
+        "operation": "addition"
+      }
+    ]
+  },
+  "hidden": true
+}

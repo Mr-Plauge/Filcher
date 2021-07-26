@@ -1,0 +1,5 @@
+{
+  "name": "Pocketspace Incompatibility",
+  "description": "Your space-bending properties interfere with the workings of Ender Chests and Shulker Boxes, preventing you from using either.",
+  "type": "origins:simple"
+}

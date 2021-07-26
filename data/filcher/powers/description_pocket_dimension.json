@@ -1,0 +1,5 @@
+{
+  "name": "Pocket Dimension",
+  "description": "You can access a personal room, where blocks and entities can be stored. 3 second charge-up time. Punching entities during charge-up will teleport them into the pocket dimension with you. Limit of 10 non-player entities inside of the pocket dimension. Damage taken from enemies during charge-up is increased.",
+  "type": "origins:simple"
+}
