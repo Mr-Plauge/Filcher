@@ -1,3 +1,5 @@
+scoreboard objectives add filcher_system dummy
+scoreboard objectives add filcher_one dummy
 scoreboard objectives add filcher_eight dummy
 scoreboard objectives add filcher_home_x dummy
 scoreboard objectives add filcher_home_y dummy
@@ -37,7 +39,12 @@ scoreboard players add @s destination_z 0
 scoreboard players add @s destination_dim 0
 scoreboard players add @s destination_con 0
 scoreboard players add @s destination_var 0
+scoreboard players add #global filcher_system 1
+scoreboard players set #global filcher_one 1
 scoreboard players set #global filcher_eight 8
+execute if score #global filcher_system = #global filcher_one run scoreboard players set #global filcher_last_x -40000
+execute if score #global filcher_system = #global filcher_one run scoreboard players set #global filcher_last_y 60
+execute if score #global filcher_system = #global filcher_one run scoreboard players set #global filcher_last_z -40000
 scoreboard players add #global filcher_last_x 0
 scoreboard players set #global filcher_last_y 60
 scoreboard players add #global filcher_last_z 0

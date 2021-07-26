@@ -5,7 +5,7 @@
     "command": "function filcher:filcher_generate_room",
     "permission_level": 4 
   },
-  "interval": 20,
+  "interval": 200,
   "condition": {
     "type": "origins:and",
     "conditions": [
