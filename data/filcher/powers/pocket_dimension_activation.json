@@ -357,6 +357,47 @@
                   "dimension": "filcher:filcher_pocket_dimension"
                 },
                 "if_action": {
+                  "type": "origins:execute_command",
+                  "command": "function filcher:filcher_generate_room",
+                  "permission_level": 4
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "origins:delay",
+        "ticks": 61,
+        "action": {
+          "type": "origins:if_else",
+          "condition": {
+            "type": "origins:and",
+            "conditions": [
+              {
+                "type": "origins:health",
+                "comparison": ">",
+                "compare_to": 0
+              },
+              {
+                "type": "origins:status_effect",
+                "effect": "minecraft:slowness",
+                "min_amplifier": 53,
+                "max_amplifier": 53,
+                "inverted": true
+              }
+            ]
+          },
+          "if_action": {
+            "type": "origins:and",
+            "actions": [
+              {
+                "type": "origins:if_else",
+                "condition": {
+                  "type": "origins:dimension",
+                  "dimension": "filcher:filcher_pocket_dimension"
+                },
+                "if_action": {
                   "type": "origins:and",
                   "actions": [
                     {
