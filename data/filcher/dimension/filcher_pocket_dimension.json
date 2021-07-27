@@ -29,8 +29,6 @@
     "logical_height": 256,
     "effects": "minecraft:the_nether",
     "infiniburn": "minecraft:infiniburn_overworld",
-    "fixed_time": 6000,
-    "min_y": 0,
-    "height": 256
+    "fixed_time": 6000
   }
 }
